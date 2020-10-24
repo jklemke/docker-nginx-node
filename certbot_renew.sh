@@ -3,7 +3,7 @@
 COMPOSE="/usr/local/bin/docker-compose --no-ansi"
 DOCKER="/usr/bin/docker"
 
-cd /home/jklemke/docker/nginxnode001/
+cd ~/docker-nginx-node/
 $COMPOSE run certbot renew --dry-run && $COMPOSE kill -s SIGHUP webserver
 $DOCKER system prune -af
 
