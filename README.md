@@ -5,7 +5,7 @@ A docker-compose project with these servers:
   * therapeutichermeneutic.org -- an express-node webserver (change to your own domain name)
   * certbot -- the certbot utility, which talks to letsencrypt.org to automate the process of obtaining and renewing HTTPS certificates
   
-This project is based on an excellent [Digital Ocean tutorial](https://www.digitalocean.com/community/tutorials/how-to-secure-a-containerized-node-js-application-with-nginx-let-s-encrypt-and-docker-compose) by Kathleen Juell.
+This project is based on an excellent [Digital Ocean tutorial](https://www.digitalocean.com/community/tutorials/how-to-secure-a-containerized-node-js-application-with-nginx-let-s-encrypt-and-docker-compose) by Kathleen Juell, so go there for details.
 
 ## Notes
 * change all occurrences of therapeutichermeneutic.org or theraherm to your own domain name
