@@ -1,0 +1,28 @@
+{
+  "name": "bootstrap-001",
+  "version": "1.0.0",
+  "description": "A basic bootstrap HTML page delivered with node.js and Express",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jklemke/bootstrap-001.git"
+  },
+  "keywords": [
+    "node.js",
+    "Express",
+    "bootstrap",
+    "groxlog"
+  ],
+  "author": "Joe Klemke",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jklemke/bootstrap-001/issues"
+  },
+  "homepage": "https://github.com/jklemke/bootstrap-001#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

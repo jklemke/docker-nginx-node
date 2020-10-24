@@ -1,0 +1,64 @@
+version: '3'
+
+services:
+  therapeutichermeneutic.org:
+    build:
+      context: ./therapeutichermeneutic.org
+      dockerfile: Dockerfile
+    image: therapeutichermeneutic.org
+    container_name: therapeutichermeneutic.org
+    restart: "no"
+    networks:
+      - app-network
+
+  webserver:
+    image: nginx:mainline-alpine
+    container_name: webserver
+    restart: "no"
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - theraherm-root:/var/www/therapeutichermeneutic.org/html
+      - ./nginx-conf:/etc/nginx/conf.d
+      - certbot-etc:/etc/letsencrypt
+      - certbot-var:/var/lib/letsencrypt
+      - dhparam:/etc/ssl/certs
+    depends_on:
+      -  therapeutichermeneutic.org
+    networks:
+      - app-network
+
+  certbot:
+    image: certbot/certbot
+    container_name: certbot
+    volumes:
+      - certbot-etc:/etc/letsencrypt
+      - certbot-var:/var/lib/letsencrypt
+      - theraherm-root:/var/www/therapeutichermeneutic.org/html
+    depends_on:
+      - webserver
+    command: certonly --webroot --webroot-path=/var/www/therapeutichermeneutic.org/html --email joeklemke@gmail.com --agree-tos --no-eff-email --force-renewal -d therapeutichermeneutic.org -d www.therapeutichermeneutic.org
+
+volumes:
+  certbot-etc:
+  certbot-var:
+  theraherm-root:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/admin/docker/nginxnode101/therapeutichermeneutic.org/html
+      o: bind
+  dhparam:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/admin/docker/nginxnode101/dhparam/
+      o: bind
+
+networks:
+  app-network:
+    driver: bridge
+
+    
+
