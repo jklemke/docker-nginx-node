@@ -1,7 +1,7 @@
 # docker-nginx-node
 
 A docker-compose project with these servers:
-  * webserver -- an nginx reverse proxy, HTTPS server
+  * webserver -- an nginx reverse proxy HTTPS server
   * therahermnodejs -- a node express webserver for the domain therapeutichermeneutic.org (change to your own domain name)
   * certbot -- the certbot utility, which talks to [letsencrypt.org](https://letsencrypt.org) to automate the process of obtaining and renewing HTTPS certificates
   
