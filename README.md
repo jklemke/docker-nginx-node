@@ -13,7 +13,7 @@ This project is based on an excellent [Digital Ocean tutorial](https://www.digit
 
       sudo openssl dhparam -out ~/docker-nginx-node/dhparam/example-dhparam-2048.pem 2048
 * there is a directory called `tempconf` which has alternate versions of nginx.conf for use in testing
-* while testing, comment the certbot exec line in docker-compose.yml in order to avoid sending too many certbot requests to letsencrypt.org
+* in order to avoid sending too many certbot requests to letsencrypt.org while testing, either add `--staging` to the `command: certonly` line in docker-compose.yml, or comment out the entire line
 * the certbot_renew.sh script is set to perform a "dry run". In order to perform an actual renewal change this line
 
       $COMPOSE run certbot renew --dry-run && $COMPOSE kill -s SIGHUP webserver
