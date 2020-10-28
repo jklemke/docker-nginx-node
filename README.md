@@ -2,7 +2,7 @@
 
 A docker-compose project with these servers:
   * webserver -- an nginx reverse proxy, HTTPS server
-  * therapeutichermeneutic.org -- an express-node webserver (change to your own domain name)
+  * therahermnodejs -- a node express webserver for the domain therapeutichermeneutic.org (change to your own domain name)
   * certbot -- the certbot utility, which talks to letsencrypt.org to automate the process of obtaining and renewing HTTPS certificates
   
 This project is based on an excellent [Digital Ocean tutorial](https://www.digitalocean.com/community/tutorials/how-to-secure-a-containerized-node-js-application-with-nginx-let-s-encrypt-and-docker-compose) by Kathleen Juell, so go there for details.
@@ -19,3 +19,5 @@ This project is based on an excellent [Digital Ocean tutorial](https://www.digit
   
       $COMPOSE run certbot renew && $COMPOSE kill -s SIGHUP webserver
 * setup a cron job to run certbot_renew.sh at regular intervals (e.g. weekly)
+
+* there is a directory called `tempconf` which has alternate versions of nginx.cong for use in testing
