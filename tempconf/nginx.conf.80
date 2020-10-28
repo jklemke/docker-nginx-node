@@ -1,0 +1,21 @@
+server {
+        listen 80;
+        listen [::]:80;
+        
+        root /var/www/html;
+        index index.html index.htm index.nginx-debian.html;
+
+
+        server_name therapeutichermeneutic.org www.therapeutichermeneutic.org;
+
+        location / {
+                proxy_pass http://therapeutichermeneutic.org:8181;
+        }
+
+        location ~ /.well-known/acme-challenge {
+                allow all;
+                root /var/www/therapeutichermeneutic.org/html;
+        }
+
+}
+

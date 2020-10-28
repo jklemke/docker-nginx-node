@@ -1,0 +1,16 @@
+server {
+        listen 80;
+        listen [::]:80;
+        
+        root /var/www/therapeutichermeneutic.org/html;
+        index index.html index.htm index.nginx-debian.html;
+
+
+        server_name therahermnodejs;
+
+        location / {
+                proxy_pass http://therahermnodejs:8181;
+        }
+
+}
+
