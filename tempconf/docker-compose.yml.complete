@@ -8,6 +8,8 @@ services:
     image: therahermnodejs
     container_name: therahermnodejs
     restart: "no"
+    volumes:
+      - theraherm-root:/home/node/app/www
     networks:
       - app-network
 
@@ -19,7 +21,7 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - theraherm-root:/var/www/therapeutichermeneutic.org/html
+      - theraherm-root:/var/www/therapeutichermeneutic.org/www
       - ./nginx-conf:/etc/nginx/conf.d
       - certbot-etc:/etc/letsencrypt
       - certbot-var:/var/lib/letsencrypt
@@ -35,10 +37,10 @@ services:
     volumes:
       - certbot-etc:/etc/letsencrypt
       - certbot-var:/var/lib/letsencrypt
-      - theraherm-root:/var/www/therapeutichermeneutic.org/html
+      - theraherm-root:/var/www/therapeutichermeneutic.org/www
     depends_on:
       - webserver
-    command: certonly --webroot --webroot-path=/var/www/therapeutichermeneutic.org/html --email jklemke@grox.com --agree-tos --no-eff-email --staging -d therapeutichermeneutic.org -d www.therapeutichermeneutic.org
+    #command: certonly --webroot --webroot-path=/var/www/therapeutichermeneutic.org/html --email jklemke@grox.com --agree-tos --no-eff-email --staging -d therapeutichermeneutic.org -d www.therapeutichermeneutic.org
 
 volumes:
   certbot-etc:
@@ -47,7 +49,7 @@ volumes:
     driver: local
     driver_opts:
       type: none
-      device: /home/admin/docker-nginx-node/therapeutichermeneutic.org/html
+      device: /home/admin/docker-nginx-node/therapeutichermeneutic.org/www
       o: bind
   dhparam:
     driver: local

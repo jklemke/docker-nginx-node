@@ -9,7 +9,7 @@ server {
         server_name therapeutichermeneutic.org www.therapeutichermeneutic.org;
 
         location / {
-                proxy_pass http://therapeutichermeneutic.org:8181;
+                proxy_pass http://therahermnodejs:8181;
         }
 
         location ~ /.well-known/acme-challenge {
