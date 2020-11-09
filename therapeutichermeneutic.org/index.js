@@ -1,10 +1,10 @@
 const express = require('express');
 const expressApp = express();
 const path = require('path');
-const groxLog = require('./app/groxlog');
+const groxLog = require('./www/js/groxlog');
 const gl = new groxLog.GroxLog();
 const portNum = 8181;
-const htmlHome = path.join(__dirname, 'html');
+const htmlHome = path.join(__dirname, 'www', 'html');
 
 //display start page at specified port
 expressApp.get('/', function(req, res) {

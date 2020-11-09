@@ -9,7 +9,7 @@ const getLogDir = (function () {
 	let logDir = '';
 	return function() {
 		if (logDir.length === 0) {
-			logDir = path.join(__dirname,'../', 'log');
+			logDir = path.join(__dirname,'../../', 'log');
 			fs.mkdir(
 				logDir,
 				{},
