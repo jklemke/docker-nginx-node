@@ -2,7 +2,7 @@ server {
         listen 80;
         listen [::]:80;
         
-        root /var/www/therapeutichermeneutic.org/html;
+        root /var/www/therapeutichermeneutic.org;
         index index.html index.htm index.nginx-debian.html;
 
 
